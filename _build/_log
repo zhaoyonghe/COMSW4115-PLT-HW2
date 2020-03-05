@@ -1,0 +1,12 @@
+### Starting build.
+# Target: a.mll, tags: { extension:mll, file:a.mll, lexer, ocaml, ocamllex, quiet }
+/usr/bin/ocamllex.opt -q a.mll # cached
+# Target: a.ml.depends, tags: { extension:ml, file:a.ml, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep.opt -modules a.ml > a.ml.depends # cached
+# Target: a.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:a.cmo, file:a.ml, implem, ocaml, quiet }
+/usr/bin/ocamlc.opt -c -o a.cmo a.ml # cached
+# Target: a.cmx, tags: { compile, extension:cmx, extension:ml, file:a.cmx, file:a.ml, implem, native, ocaml, quiet }
+/usr/bin/ocamlopt.opt -c -o a.cmx a.ml # cached
+# Target: a.native, tags: { dont_link_with, extension:native, file:a.native, link, native, ocaml, program, quiet }
+/usr/bin/ocamlopt.opt a.cmx -o a.native # cached
+# Compilation successful.
